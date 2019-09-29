@@ -8,6 +8,34 @@
     <title>Title</title>
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
+{#todo - solve the spacing issue resulting in footer not being a fucking footer#}
+    <style type="text/css" media="screen">
+{#        * {#}
+{#         box-sizing: border-box;#}
+{#        }#}
+{#        *:before,#}
+{#        *:after {#}
+{#         box-sizing: border-box;#}
+{#        }#}
+{#        html,#}
+{#        body {#}
+{#         height: 100%;#}
+{#         position: relative;#}
+{#        }#}
+        .main-container {
+         min-height: 100vh; /* will cover the 100% of viewport */
+         overflow: hidden;
+         display: block;
+         position: relative;
+         padding-bottom: 100px; /* height of your footer */
+        }
+{#        footer {#}
+{#         position: absolute;#}
+{#         bottom: 0;#}
+{#         width: 100%;#}
+{#        }#}
+    </style>
+
 </head>
 <body>
 
@@ -65,13 +93,13 @@
 
 </main>
 
-{# todo - need to edit the footer becuase it overlaps site #}
+{# todo - need to add padding between content and the footer #}
 
-<footer class="fixed-bottom bg-light">
-{#<nav class="navbar navbar-light bg-light">#}
-  <p class="text-center">&copy; multiparadigmbiz.com 2019</p>
-{#</nav>#}
-</footer>
+{#<footer class="navbar-fixed-bottom mt-4 bg-light">#}
+<nav class="navbar sticky-bottom bg-light mt-4">
+  <p class="mx-auto">&copy; multiparadigmbiz.com 2019</p>
+</nav>
+{#</footer>#}
 
 {# ------------------------------------------------------------------------------------------------------------------ #}
 </body>
