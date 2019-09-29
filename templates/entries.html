@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block page_header %}
+<h1>blog['Entries']</h1>
+{% endblock page_header %}
+
+
+{% block contents %}
+{#<ul>#}
+
+{% for entry in entries %}
+<div class="card">
+  <h5 class="card-header">{{ entry.title}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ entry.entry_type }} - {{ entry.date_added|date:'M d, Y H:i' }}</h5>
+    <p class="card-text">{{ entry.text|linebreaks }}</p>
+    <a href="{% url 'mpb_blog:entry' entry.id %}" class="btn btn-primary">Read More</a>
+  </div>
+</div>
+
+{#    <a href="{% url 'mpb_blog:entry' entry.id %}"> {{ entry.title }}</a>#}
+
+{% empty %}
+    <li>Sorry, not posts under this topic...yet ;)</li>
+{% endfor %}
+{#</ul>#}
+
+
+{% endblock contents %}

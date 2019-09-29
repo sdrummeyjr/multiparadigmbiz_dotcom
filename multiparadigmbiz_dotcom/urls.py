@@ -20,3 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mpb_blog.urls'))
 ]
+
+
+admin.site.site_header = "MPB - Admin"
+admin.site.site_title = "MPB Admin Portal"
+admin.site.index_title = "Welcome to MPB's Admin Portal"

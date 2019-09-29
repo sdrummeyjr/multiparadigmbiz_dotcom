@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_header %}
+<h1>blog['Topics']</h1>
+{% endblock page_header %}
+
+
+{% block contents %}
+<ul>
+
+{% for topic in topics %}
+<li><h3>
+    <a href="{% url 'mpb_blog:topic' topic.id %}"> {{ topic }}</a>
+</h3></li>
+
+{% empty %}
+    <li>Sorry, not posts under this topic...yet ;)</li>
+{% endfor %}
+</ul>
+
+
+{% endblock contents %}

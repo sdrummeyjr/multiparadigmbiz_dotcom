@@ -4,19 +4,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
-
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-
 </head>
 <body>
 
 {# ------------------------------------------------------------------------------------------------------------------ #}
 
-
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+  <a class="navbar-brand" href="{% url 'mpb_blog:index' %}">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,13 +22,10 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'mpb_blog:index' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="{% url 'mpb_blog:entries' %}">Blog</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -50,26 +45,32 @@
 
 <main role="main">
 
-{# todo need to adjust for the fixed nav bar becuase the jumbotron underlaps #}
-
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1>Bootstrap Tutorial</h1>
+    <h1>multiParadigmBiz</h1>
     <p>Bootstrap is the most popular HTML, CSS...</p>
   </div>
 </div>
 
-<div>
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
     {%  block contents %}
 
 
     {% endblock %}
 </div>
+</div>
+</div>
 
 </main>
 
-<footer class="container">
-  <p>&copy; multiparadigmbiz.com 2019</p>
+{# todo - need to edit the footer becuase it overlaps site #}
+
+<footer class="fixed-bottom bg-light">
+{#<nav class="navbar navbar-light bg-light">#}
+  <p class="text-center">&copy; multiparadigmbiz.com 2019</p>
+{#</nav>#}
 </footer>
 
 {# ------------------------------------------------------------------------------------------------------------------ #}
