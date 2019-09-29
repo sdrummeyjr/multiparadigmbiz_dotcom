@@ -6,7 +6,14 @@ from django.apps import apps
 
 
 def index(request):
-    return render(request, 'index.html')
+    base_topics = Topic.objects.order_by('text')
+    count = []
+    for item in base_topics:
+        c = item.entry_set.all()
+        if c:
+            count.append((item.id, item.text, len(c)))
+    context = {'topics': base_topics, 'topic_info': count}
+    return render(request, 'index.html', context)
 
 
 # https://stackoverflow.com/questions/46695150/django-search-fields-in-multiple-models
