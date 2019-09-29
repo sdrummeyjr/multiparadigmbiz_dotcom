@@ -5,6 +5,7 @@ app_name = 'mpb_blog'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('search/', views.search, name='search'),
     path('topics/', views.topics, name='topics'),
     path('topics/<int:topic_id>/', views.topic, name='topic'),
     path('entries/', views.entries, name='entries'),

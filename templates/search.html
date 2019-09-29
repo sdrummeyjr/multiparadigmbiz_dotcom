@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block contents %}
+
+<h3 class="mb-4">search[" {{ query }} "]</h3>
+
+<ul>
+{% for result in results %}
+
+<div class="card mt-3">
+  <h5 class="card-header">{{ result.title}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ result.entry_type }} - {{ result.date_added|date:'M d, Y H:i' }}</h5>
+    <p class="card-text">{{ result.text|truncatechars:150 }}</p>
+    <a href="{% url 'mpb_blog:entry' result.id %}" class="btn btn-primary">Read More</a>
+  </div>
+</div>
+  {% empty %}
+      <h4>Sorry, could not find results</h4>
+  {% endfor %}
+</ul>
+
+{% endblock %}

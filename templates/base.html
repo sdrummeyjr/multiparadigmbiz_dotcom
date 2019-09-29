@@ -4,12 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+    <meta name="viewport">
     <title>Title</title>
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
 {#todo - solve the spacing issue resulting in footer not being a fucking footer#}
-    <style type="text/css" media="screen">
+{#    <style type="text/css" media="screen">#}
 {#        * {#}
 {#         box-sizing: border-box;#}
 {#        }#}
@@ -22,19 +23,20 @@
 {#         height: 100%;#}
 {#         position: relative;#}
 {#        }#}
-        .main-container {
-         min-height: 100vh; /* will cover the 100% of viewport */
-         overflow: hidden;
-         display: block;
-         position: relative;
-         padding-bottom: 100px; /* height of your footer */
-        }
+{#        .main-container {#}
+        {# min-height: 100vh; /* will cover the 100% of viewport */#}
+        {# overflow: hidden;#}
+        {# display: block;#}
+        {# position: relative;#}
+        {# padding-bottom: 100px; /* height of your footer */#}
+        {# } #}
+{##}
 {#        footer {#}
 {#         position: absolute;#}
 {#         bottom: 0;#}
 {#         width: 100%;#}
 {#        }#}
-    </style>
+{#    </style>#}
 
 </head>
 <body>
@@ -64,29 +66,27 @@
         </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'mpb_blog:search' %}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
 
 <main role="main">
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1>multiParadigmBiz</h1>
-    <p>Bootstrap is the most popular HTML, CSS...</p>
-  </div>
-</div>
+{% block page_header %}
 
-<div class="container">
+
+{% endblock page_header %}
+
+<div class="container mt-5">
 <div class="row">
 <div class="col-lg-12">
     {%  block contents %}
 
 
-    {% endblock %}
+    {% endblock contents %}
 </div>
 </div>
 </div>
@@ -95,10 +95,16 @@
 
 {# todo - need to add padding between content and the footer #}
 
+{#<footer class="footer mt-auto py-3">#}
+{#  <div class="container">#}
+{#    <span class="text-muted">Place sticky footer content here.</span>#}
+{#  </div>#}
+{#</footer>#}
+
 {#<footer class="navbar-fixed-bottom mt-4 bg-light">#}
-<nav class="navbar sticky-bottom bg-light mt-4">
-  <p class="mx-auto">&copy; multiparadigmbiz.com 2019</p>
-</nav>
+{#<nav class="navbar sticky-bottom bg-light mt-4">#}
+{#  <p class="mx-auto">&copy; multiparadigmbiz.com 2019</p>#}
+{#</nav>#}
 {#</footer>#}
 
 {# ------------------------------------------------------------------------------------------------------------------ #}
